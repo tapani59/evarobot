@@ -38,8 +38,8 @@ DWAPlannerROS:
   max_vel_theta: 0.4
   min_vel_theta: 0.1
 
-  yaw_goal_tolerance: 0.15      # muutettu 3 luenon aikana 0.30:ksi, mutta palauti luennon jälkeen kokeeksi
-  xy_goal_tolerance: 0.15 #0.10 # 0.50
+  yaw_goal_tolerance: 0.30      # muutettu 3 luenon aikana 0.30:ksi, mutta palauti luennon jälkeen kokeeksi
+  xy_goal_tolerance: 0.80 #0.10 # 0.50
   latch_xy_goal_tolerance: false
 
   sim_time: 2.0 #4.0 #2.0
@@ -66,7 +66,7 @@ DWAPlannerROS:
 #    The weighting for how much the controller should attempt to avoid obstacles. default: 0.325
   stop_time_buffer: 1.0
 #    The amount of time that the robot must stop before a collision in order for a trajectory to be considered valid in seconds. default 0.2
-  scaling_speed: 0.25 #alkuperäinen oli 0.25
+  scaling_speed: 0.35 #alkuperäinen oli 0.25
 #    The absolute value of the velocity at which to start scaling the robot's footprint, in m/s.  default: 0.25
   max_scaling_factor: 0.2
 #    The maximum factor to scale the robot's footprint by. default: 0.2
