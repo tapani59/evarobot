@@ -8,7 +8,7 @@ TrajectoryPlannerROS:
   heading_lookahead: 1.0
 
   max_vel_x: 0.12    #0.12
-  min_vel_x: 0.09
+  min_vel_x: 0.12   #0.09
   max_vel_theta: 0.08
   min_in_place_vel_theta: 0.04
   escape_vel: -0.09
@@ -31,7 +31,7 @@ DWAPlannerROS:
   acc_lim_th: 0.3
   max_vel_trans: 1.0 #alkuperäinen oli 0.5
   min_vel_trans: 0.1
-  max_vel_x: 0.8     #0.12 0.3 alkuperäinen oli 0.5
+  max_vel_x: 2.0     #0.12 0.3 alkuperäinen oli 0.5
   min_vel_x: -0.5
   max_vel_y: 0.0
   min_vel_y: 0.0
@@ -56,17 +56,17 @@ DWAPlannerROS:
 #  + goal_distance_bias * (distance to local goal from the endpoint of the trajectory in meters)
 #  + occdist_scale * (maximum obstacle cost along the trajectory in obstacle cost (0-254))
 
-  path_distance_bias: 8.0 #alkuperäinen oli 32.0
+  path_distance_bias: 5.0 #alkuperäinen oli 32.0
 #    The weighting for how much the controller should stay close to the path it was given. default: 32.0
   goal_distance_bias: 24.0 
 #    The weighting for how much the controller should attempt to reach its local goal, also controls speed. default: 24.0
-  occdist_scale: 0.05
+  occdist_scale: 0.020
 #    The weighting for how much the controller should attempt to avoid obstacles. default 0.01
-  forward_point_distance: 0.225 #alkuperäinen oli 0.325
+  forward_point_distance: 0.325 #alkuperäinen oli 0.325
 #    The weighting for how much the controller should attempt to avoid obstacles. default: 0.325
   stop_time_buffer: 1.0
 #    The amount of time that the robot must stop before a collision in order for a trajectory to be considered valid in seconds. default 0.2
-  scaling_speed: 0.25
+  scaling_speed: 0.25 #alkuperäinen oli 0.25
 #    The absolute value of the velocity at which to start scaling the robot's footprint, in m/s.  default: 0.25
   max_scaling_factor: 0.2
 #    The maximum factor to scale the robot's footprint by. default: 0.2
