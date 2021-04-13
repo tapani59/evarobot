@@ -4,7 +4,7 @@ footprint: [[0.30, 0.30], [-0.30, 0.30], [-0.30, -0.30], [0.30, -0.30]]
 #footprint: [[0.20, 0.20], [-0.20, 0.20], [-0.20, -0.20], [0.20, -0.20]]
 footprint_padding: 0.018 #alkuperäinen oli 0.01
 
-inflation_radius: 0.5 #alkuperäinen oli 0.1
+inflation_radius: 0.48 #alkuperäinen oli 0.1
 
 observation_sources: laser
 
