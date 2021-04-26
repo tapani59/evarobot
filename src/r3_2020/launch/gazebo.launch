@@ -1,6 +1,10 @@
 <launch>
   <include
     file="$(find gazebo_ros)/launch/empty_world.launch" />
+  <param name="r3/robot_description" textfile="$(find r3_2020)urdf/r3_2020.urdf"/>
+
+  <rosparam file="$(find r3_2020)/config/r3_controller.yaml" command="load"/>
+
   <node
     name="tf_footprint_base"
     pkg="tf"
@@ -10,11 +14,15 @@
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find r3_2020)/urdf/r3_2020.urdf -urdf -model r3_2020"
+    args="-file $(find r3_2020)/urdf/r3_2020.urdf -robot_namespace /r3 -urdf -model r3_2020"
     output="screen" />
   <node
     name="fake_joint_calibration"
     pkg="rostopic"
     type="rostopic"
     args="pub /calibrated std_msgs/Bool true" />
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" 
+        output="screen" ns="/r3" args="righ_blade_controller joint_state_controller"/>
+
 </launch>
