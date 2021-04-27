@@ -340,7 +340,7 @@
   </gazebo>
   
   <!--sonar2_link-->
-  <link name="sonar1_link">
+  <link name="sonar2_link">
     <inertial>
       <origin
         xyz="0 0 0"
@@ -362,7 +362,7 @@
     </visual>
     <collision>
       <origin
-        xyz="-0.22 0.15 0"
+        xyz="0.22 0.15 0"
         rpy="0 0 0" />
       <geometry>
          <box size="0.01 0.05 0.01" />
@@ -370,22 +370,22 @@
     </collision>
   </link>
   <joint
-    name="sonar1_joint"
+    name="sonar2_joint"
     type="fixed">
     <origin
-      xyz="-0.235 0 0.16"
-      rpy="0 0 3.14157" />
+      xyz="0.234 0 0.16"      
+      rpy="0 0 0" />   
     <parent
       link="base_link" />
     <child
-      link="sonar1_link" />
+      link="sonar2_link" />
     <axis
       xyz="0 0 0" />
   </joint>
-  <gazebo reference="sonar1_link">
-    <sensor type="ray" name="sonar1_sensor">
+  <gazebo reference="sonar2_link">
+    <sensor type="ray" name="sonar2_sensor">
       <pose> 0 0 0 0 0 0 </pose>
-      <update_rate>60</update_rate> <!-- referensissä nimeämiskäytäntönä alaviiva-->
+      <update_rate>60</update_rate> 
       <visualize>true</visualize>
       <ray>
         <scan>
@@ -402,18 +402,18 @@
             <max_angle>0.05</max_angle>
           </vertical>
         </scan>
-        <range>   <!--luotauksen mittayksiköt metreinä-->
+        <range>   
           <min>0.01</min>
           <max>5</max>      
           <resolution>0.01</resolution>
         </range>
       </ray>
-      <plugin name="sonar1_controller" filename="libgazebo_ros_range.so">
+      <plugin name="sonar2_controller" filename="libgazebo_ros_range.so">
         <gaussianNoise>0.005</gaussianNoise>
         <alwaysOn>true</alwaysOn>
-        <updateRate>60</updateRate> <!-- pluginissa nimeämiskäytäntonä Isokirjain-->
-        <topicName>sonar1</topicName>
-        <frameName>sonar1_link</frameName>
+        <updateRate>60</updateRate> 
+        <topicName>sonar2</topicName>
+        <frameName>sonar2_link</frameName>
         <minRange>0.01</minRange>
         <maxRange>0.5</maxRange>
         <fov>0.5</fov>
@@ -422,8 +422,8 @@
     </sensor>
   </gazebo>
 
-<!--sonar3_link-->
-  <link name="sonar1_link">
+<!--sonar3_link -->
+  <link name="sonar3_link">
     <inertial>
       <origin
         xyz="0 0 0"
@@ -433,7 +433,6 @@
       <inertia
         ixx="0.0000005" ixy="0" ixz="0"
         iyy="0.0000005" iyz="0" izz="0.0000065" />
-        <!--w 0.05 h 0.01 l 0.01 xx 0.0000005 yy=zz=0.0000065-->
     </inertial>
     <visual>
       <origin
@@ -453,22 +452,22 @@
     </collision>
   </link>
   <joint
-    name="sonar1_joint"
+    name="sonar3_joint"
     type="fixed">
     <origin
-      xyz="-0.235 0 0.16"
-      rpy="0 0 3.14157" />
+      xyz="0 -0.235 0.16"    
+      rpy="0 0 -1.57079" />  
     <parent
       link="base_link" />
     <child
-      link="sonar1_link" />
+      link="sonar3_link" />
     <axis
       xyz="0 0 0" />
   </joint>
-  <gazebo reference="sonar1_link">
-    <sensor type="ray" name="sonar1_sensor">
+  <gazebo reference="sonar3_link">
+    <sensor type="ray" name="sonar3_sensor">
       <pose> 0 0 0 0 0 0 </pose>
-      <update_rate>60</update_rate> <!-- referensissä nimeämiskäytäntönä alaviiva-->
+      <update_rate>60</update_rate> 
       <visualize>true</visualize>
       <ray>
         <scan>
@@ -485,18 +484,18 @@
             <max_angle>0.05</max_angle>
           </vertical>
         </scan>
-        <range>   <!--luotauksen mittayksiköt metreinä-->
+        <range>  
           <min>0.01</min>
           <max>5</max>      
           <resolution>0.01</resolution>
         </range>
       </ray>
-      <plugin name="sonar1_controller" filename="libgazebo_ros_range.so">
+      <plugin name="sonar3_controller" filename="libgazebo_ros_range.so">
         <gaussianNoise>0.005</gaussianNoise>
         <alwaysOn>true</alwaysOn>
-        <updateRate>60</updateRate> <!-- pluginissa nimeämiskäytäntonä Isokirjain-->
-        <topicName>sonar1</topicName>
-        <frameName>sonar1_link</frameName>
+        <updateRate>60</updateRate> 
+        <topicName>sonar3</topicName>
+        <frameName>sonar3_link</frameName>
         <minRange>0.01</minRange>
         <maxRange>0.5</maxRange>
         <fov>0.5</fov>
@@ -506,7 +505,7 @@
   </gazebo>
 
 <!--sonar4_link-->
-  <link name="sonar1_link">
+  <link name="sonar4_link">
     <inertial>
       <origin
         xyz="0 0 0"
@@ -536,22 +535,22 @@
     </collision>
   </link>
   <joint
-    name="sonar1_joint"
+    name="sonar4_joint"
     type="fixed">
     <origin
-      xyz="-0.235 0 0.16"
-      rpy="0 0 3.14157" />
+      xyz="0 0.238 0.16"
+      rpy="0 0 1.57079" />   <!-- vaihd xyz: x=0 y= negat; rpy Y=negat pii/2-->
     <parent
       link="base_link" />
     <child
-      link="sonar1_link" />
+      link="sonar4_link" />
     <axis
       xyz="0 0 0" />
   </joint>
-  <gazebo reference="sonar1_link">
-    <sensor type="ray" name="sonar1_sensor">
+  <gazebo reference="sonar4_link">
+    <sensor type="ray" name="sonar4_sensor">
       <pose> 0 0 0 0 0 0 </pose>
-      <update_rate>60</update_rate> <!-- referensissä nimeämiskäytäntönä alaviiva-->
+      <update_rate>60</update_rate> 
       <visualize>true</visualize>
       <ray>
         <scan>
@@ -568,18 +567,18 @@
             <max_angle>0.05</max_angle>
           </vertical>
         </scan>
-        <range>   <!--luotauksen mittayksiköt metreinä-->
+        <range>   
           <min>0.01</min>
           <max>5</max>      
           <resolution>0.01</resolution>
         </range>
       </ray>
-      <plugin name="sonar1_controller" filename="libgazebo_ros_range.so">
+      <plugin name="sonar4_controller" filename="libgazebo_ros_range.so">
         <gaussianNoise>0.005</gaussianNoise>
         <alwaysOn>true</alwaysOn>
-        <updateRate>60</updateRate> <!-- pluginissa nimeämiskäytäntonä Isokirjain-->
-        <topicName>sonar1</topicName>
-        <frameName>sonar1_link</frameName>
+        <updateRate>60</updateRate> 
+        <topicName>sonar4</topicName>
+        <frameName>sonar4_link</frameName>
         <minRange>0.01</minRange>
         <maxRange>0.5</maxRange>
         <fov>0.5</fov>
@@ -588,7 +587,7 @@
     </sensor>
   </gazebo>
 
-
+<!--
 <transmission name="blade_right_trans">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="blade_right_joint">
@@ -604,7 +603,7 @@
   </plugin>
 </gazebo>
 
-
+-->
 
 
 </robot>
