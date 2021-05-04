@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ut-8"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="r3_2020_actuator"
+        params="prefix
+        link_xyz
+        joint_xyz
+        joint_rpy
+        axis_xyz
+        mass
+        ixx ixy ixz
+        iyy iyz izz
+        ">
+    <link 
+        name="${prefix}_link">
+        <inertial>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <mass
+                value="${mass}" />
+            <inertia
+                ixx="${ixx}"
+                ixy="${ixy}"
+                ixz="${ixz}"
+                iyy="${iyy}"
+                iyz="${iyz}"
+                izz="${izz}" />
+        </inertial>
+        <visual>
+            <origin
+                xyz="${link_xyz}"
+                rpy="0 0 0" /> 
+            <geometry> 
+                <mesh
+                filename="package://r3_2020/meshes/${prefix}_link.STL" />
+            </geometry>
+            <material
+                name="">
+                <color
+                rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="${link_xyz}"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                filename="package://r3_2020/meshes/${prefix}_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+        name="${prefix}_joint"
+        type="continuous">
+        <origin
+            xyz="${joint_xyz}"
+            rpy="${joint_rpy}" />
+        <parent
+        link="base_link" />
+        <child
+        link="${prefix}_link" />
+        <axis
+            xyz="${axis_xyz}" />
+    </joint>
+
+    <transmission name="${prefix}_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${prefix}_joint">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${prefix}_motor">
+            <hardwareInterface>VelocityJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    </xacro:macro>
+</robot>
