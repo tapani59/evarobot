@@ -9,8 +9,18 @@
   <xacro:include filename="$(find r3_2020)/urdf/r3_2020_actuator.urdf.xacro"/>
 
   <xacro:r3_2020_actuator prefix="blade_right"
-    link_xyz="-0.315 0.1503 -0.13348"
-    joint_xyz="0.325 -0.1503 0.13348"
+    link_xyz="-0.301 0.1503 -0.13358"
+    joint_xyz="0.328 -0.1503 0.10248"
+    joint_rpy="0 0 0"
+    axis_xyz="0 -1 0"
+    mass="0.012885"
+    ixx="1.4009E-05" ixy="-1.5168E-20" ixz="-1.9721E-22"
+    iyy="2.8016E-05" iyz="9.4703E-20" izz="1.4009E-05">
+  </xacro:r3_2020_actuator>
+
+  <xacro:r3_2020_actuator prefix="blade_left"
+    link_xyz="-0.301 -0.1503 -0.13358"
+    joint_xyz="0.328 0.145 0.10248"
     joint_rpy="0 0 0"
     axis_xyz="0 -1 0"
     mass="0.012885"
@@ -28,8 +38,15 @@
     joint_rpy="0 0 0">
     </xacro:r3_2020_sonar>
 
-  <!-- sonar3:       xyz="0 -0.235 0.16"    rpy="0 0 -1.57079" 
-        sonar4:      xyz="0 0.238 0.16"     rpy="0 0 1.57079"  -->
+  <xacro:r3_2020_sonar prefix="sonar3"
+    joint_xyz="0 -0.235 0.16"
+    joint_rpy="0 0 -1.5709">
+    </xacro:r3_2020_sonar>
+
+      <xacro:r3_2020_sonar prefix="sonar4"
+    joint_xyz="0 0.238 0.16"
+    joint_rpy="0 0 1.57079">
+    </xacro:r3_2020_sonar>
 
   <link
     name="base_link">
@@ -177,7 +194,7 @@
     <axis
       xyz="0 1 0" />
   </joint>
-  
+  <!--
   <link
     name="blade_left_link">
     <inertial>
@@ -231,6 +248,7 @@
     <axis
       xyz="0 -1 0" />
   </joint>
+  -->
 
 <gazebo>
   <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
