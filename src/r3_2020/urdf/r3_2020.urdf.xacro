@@ -9,8 +9,8 @@
   <xacro:include filename="$(find r3_2020)/urdf/r3_2020_actuator.urdf.xacro"/>
 
   <xacro:r3_2020_actuator prefix="blade_right"
-    link_xyz="-0.301 0.1503 -0.13358"
-    joint_xyz="0.328 -0.1503 0.10248"
+    link_xyz="-0.302 0.1503 -0.13358"
+    joint_xyz="0.3265 -0.1503 0.11248"
     joint_rpy="0 0 0"
     axis_xyz="0 -1 0"
     mass="0.012885"
